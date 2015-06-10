@@ -46,7 +46,7 @@
         </div>
     </div>
     <div id="mws-banner-wrapper">
-    	<img src="images/pnc.png" width="375" height="100">
+    	<img src="images/logo.png" width="375" height="100">
     </div>
 
     <!-- JavaScript Plugins -->
