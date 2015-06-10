@@ -134,26 +134,27 @@ set Conn = nothing
 End Sub
 
 Sub conteoeficiencia()
-set Conn = Server.CreateObject("ADODB.Connection")
- DSN = session("conec")
-conn.Open DSN
-Set Rsx = Server.CreateObject("ADODB.Recordset")
-Set Rsx2 = Server.CreateObject("ADODB.Recordset")
-elmes = month(date)
-elano = year(date)
-Rsx.Open "select count(unidad) as totalg from ichequeos inner join ichequeosd on ichequeos.ncorre = ichequeosd.ncorre where month(fecha) =" &  elmes & " and year(fecha) =" & elano,Conn, 1,3
-Rsx2.Open "select count(unidad) as totalb from ichequeos inner join ichequeosd on ichequeos.ncorre = ichequeosd.ncorre where month(fecha) =" &  elmes & " and year(fecha) =" & elano & " and valor = 0",Conn, 1,3
-va1 =  cdbl(Rsx("totalg")) 
-va2 =  cdbl(Rsx2("totalb"))
-if va1 > 0 and va2 >0 then
-   totalefic = round((va2/va1)*100,2)
-else
-   totalefic = 0
-end if
-response.write totalefic
-set Rsx = nothing
-set Rsx2 = nothing
-set Conn = nothing
+  'set Conn = Server.CreateObject("ADODB.Connection")
+  'DSN = session("conec")
+  'conn.Open DSN
+  'Set Rsx = Server.CreateObject("ADODB.Recordset")
+  'Set Rsx2 = Server.CreateObject("ADODB.Recordset")
+  'elmes = month(date)
+  'elano = year(date)
+  'Rsx.Open "select count(unidad) as totalg from ichequeos inner join ichequeosd on ichequeos.ncorre = ichequeosd.ncorre where month(fecha) =" &  elmes & " and year(fecha) =" & elano,Conn, 1,3
+  'Rsx2.Open "select count(unidad) as totalb from ichequeos inner join ichequeosd on ichequeos.ncorre = ichequeosd.ncorre where month(fecha) =" &  elmes & " and year(fecha) =" & elano & " and valor = 0",Conn, 1,3
+  'va1 =  cdbl(Rsx("totalg")) 
+  'va2 =  cdbl(Rsx2("totalb"))
+  'if va1 > 0 and va2 >0 then
+  '   totalefic = round((va2/va1)*100,2)
+  'else
+  ''   totalefic = 0
+  'end if
+  'response.write totalefic
+  'set Rsx = nothing
+  'set Rsx2 = nothing
+  'set Conn = nothing
+  response.write 100
 End Sub
 
 Sub codigos()
@@ -201,9 +202,9 @@ set Conn = Server.CreateObject("ADODB.Connection")
 conn.Open DSN
 Set Rs = Server.CreateObject("ADODB.Recordset")
 if session("flotilla")=1 then
-	Rs.Open "SELECT codigo from _vehiculos order by codigo",Conn, 1,3
+	Rs.Open "SELECT codigo from _vehiculos where codigo!='' order by codigo ",Conn, 1,3
 else
-	Rs.Open "SELECT codigo from _vehiculos where empresap="&session("flotilla")&" order by codigo",Conn, 1,3
+	Rs.Open "SELECT codigo from _vehiculos where empresap="&session("flotilla")&" and codigo!=''order by codigo",Conn, 1,3
 end if
 varia = 1
 do while not Rs.eof

@@ -27,7 +27,7 @@
   'session("conec") = "Provider=MSDASQL;DRIVER={MySQL ODBC 5.2w Driver};SERVER=localhost;DATABASE=dbtrans;UID=root;PWD=root;" 
 '' session("conec") = "Provider=MSDASQL;DRIVER={MySQL ODBC 5.2w Driver};SERVER=localhost;DATABASE=dbtrans;UID=root;PWD=root;" 
 
-    session("conec") = "Driver={MySQL ODBC 5.3 ANSI Driver};Server=localhost;Port=3306;Database=dbtranspnc;User=root;Password=toor;Option=3;" 
+    session("conec") = "Driver={MySQL ODBC 5.3 ANSI Driver};Server=localhost;Port=3306;Database=dbtranspnc;User=root;Password=admin;Option=3;" 
     DSN = session("conec")
     response.write dsn
 	Set RS = Server.CreateObject("ADODB.Recordset")

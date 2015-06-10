@@ -69,7 +69,7 @@ usuario=session("Username")
 </head>
 <%
 Dim uploadsDirVar
-  uploadsDirVar = request.servervariables("APPL_PHYSICAL_PATH")&"pnc/360/fallas" 
+  uploadsDirVar = request.servervariables("APPL_PHYSICAL_PATH")&"plada/360/fallas" 
 function OutputForm()
 	Dim Conn ' Open Database Connection
 	Dim RS   ' Open Record Set

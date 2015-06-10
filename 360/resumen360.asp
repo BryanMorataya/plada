@@ -3,15 +3,15 @@
 <!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
+<!--[if gt IE 8]><!--><html lang="es"><!--<![endif]-->
 <%
-	if session("Username")="" then 
-		Response.Redirect "index.asp"
+    if session("Username")="" then 
+        Response.Redirect "index.asp"
     end if
     estapagina = 9
   '  resula = qacc(session("username"),estapagina)
-'	if resula <> 1 then 
-'		Response.Redirect "noacceso.asp"
+'   if resula <> 1 then 
+'       Response.Redirect "noacceso.asp"
 '    end if
 %>
 <%
@@ -103,35 +103,35 @@ Set Conn = Server.CreateObject("ADODB.Connection")
 
 </head>
 <body>
-	<!-- Header -->
-	<div id="mws-header" class="clearfix">
-    	<!-- Logo Container -->
-    	<div id="mws-logo-container">
-        	<!-- Logo Wrapper, images put within this wrapper will always be vertically centered -->
-        	<div id="mws-logo-wrap">
+    <!-- Header -->
+    <div id="mws-header" class="clearfix">
+        <!-- Logo Container -->
+        <div id="mws-logo-container">
+            <!-- Logo Wrapper, images put within this wrapper will always be vertically centered -->
+            <div id="mws-logo-wrap">
                 <%logop%>
-			</div>
+            </div>
         </div>
         <!-- User Tools (notifications, logout, profile, change password) -->
        <div id="mws-user-tools" class="clearfix">
             <!-- User Information and functions section -->
             <div id="mws-user-info" class="mws-inset">
-            	<!-- User Photo -->
-            	<div id="mws-user-photo">
-                	<img src="example/profile.jpg" alt="User Photo" />
+                <!-- User Photo -->
+                <div id="mws-user-photo">
+                    <img src="example/profile.jpg" alt="User Photo" />
                 </div>
                 <!-- Username and Functions -->
                 <div id="mws-user-functions">
-                	<%tituloderecha%>
+                    <%tituloderecha%>
                 </div>
             </div>
         </div>
     </div>
     <!-- Start Main Wrapper -->
     <div id="mws-wrapper">
-    	<!-- Necessary markup, do not remove -->
-		<div id="mws-sidebar-stitch"></div>
-		<div id="mws-sidebar-bg"></div>
+        <!-- Necessary markup, do not remove -->
+        <div id="mws-sidebar-stitch"></div>
+        <div id="mws-sidebar-bg"></div>
         <!-- Sidebar Wrapper -->
         <div id="mws-sidebar">
             <!-- Hidden Nav Collapse Button -->
@@ -150,15 +150,15 @@ Set Conn = Server.CreateObject("ADODB.Connection")
         <!-- Main Container Start -->
         <div id="mws-container" class="clearfix">
         
-        	<!-- Inner Container Start -->
+            <!-- Inner Container Start -->
             <div class="container">
             
-            	<!-- Statistics Button Container -->
+                <!-- Statistics Button Container -->
                 
                 <!-- Panels Start -->
                 
                   <div class="mws-panel-body no-padding">
-                    	<div class="mws-form-cols clearfix">
+                        <div class="mws-form-cols clearfix">
                                 <div class="mws-form-col-2-8 alpha">
                                     <label class="mws-form-label"><span class="white">No unidad</span></label>
                                     <div class="mws-form-item large">
@@ -176,69 +176,66 @@ Set Conn = Server.CreateObject("ADODB.Connection")
                         </div>                    
                   </div> 
                   <% if Request.QueryString("bus")<>"" then%>
-                  	<div class="mws-panel grid_8  mws-collapsible">
+                    <div class="mws-panel grid_8  mws-collapsible">
                   <%else%>
-                  	<div class="mws-panel grid_8  mws-collapsible mws-collapsed">
+                    <div class="mws-panel grid_8  mws-collapsible mws-collapsed">
                   <%end if%>
-                	<div class="mws-panel-header">
-                    	<span><i class="icon-magic"></i> 360 Por Veh&iacute;culo</span>
+                    <div class="mws-panel-header">
+                        <span><i class="icon-magic"></i> 360 Por Veh&iacute;culo</span>
                     </div>
                     <% if Request.QueryString("bus")<>"" then%>
-                    <div class="mws-panel-body no-padding">
-                        <form class="mws-form wzd-default" id="formulario">
+                    <div class="mws-panel-body no-padding" >
+                        <form class="mws-form wzd-default" id="formulario" style="display:none;">
                         <%set Conn = Server.CreateObject("ADODB.Connection")
-							DSN = session("conec")
-							DSN = session("conec")
-						conn.Open DSN
-						Set Rs = Server.CreateObject("ADODB.Recordset")
-						Set RsSub = Server.CreateObject("ADODB.Recordset")
-							Rs.Open "select preg.id,preg.lidentificador,preg.descripcion,preg.posicion from preguntae_360 preg inner join _vehiculos veh where preg.tipo_vehiculo = veh.tveh and veh.codigo = '"& Request.QueryString("bus") &"' order by id;",Conn, 1,3
-							while not Rs.eof%>
-                            <fieldset class="wizard-step mws-form-inline">
-                                <legend class="wizard-label"><i class="icol-accept" id="<%=RS("lidentificador")%>"></i> <%=RS("descripcion")%></legend>
+                            DSN = session("conec")
+                            DSN = session("conec")
+                        conn.Open DSN
+                        Set Rs = Server.CreateObject("ADODB.Recordset")
+                        Set RsSub = Server.CreateObject("ADODB.Recordset")
+                        
+                            Rs.Open "select preg.id,concat('ide_',preg.id) lidentificador,preg.descripcion,preg.posicion from preguntae_360 preg inner join _vehiculos veh where preg.tipo_vehiculo = veh.tveh and veh.codigo = '"& Request.QueryString("bus") &"' order by id;",Conn, 1,3
+
+                            do while not Rs.eof%>
+                            <fieldset class="wizard-step mws-form-inline" >
+                                <legend class="wizard-label" ><i class="icol-accept" id="<%=RS("lidentificador")%>"></i> <font style="font-size:0.9em;color:#333333;"><%=RS("descripcion")%></font></legend>
                                 <%Set RsSub = Server.CreateObject("ADODB.Recordset")
-									RsSub.Open "select id,idpregunta,descripcionpregunta from preguntad_360 where poscicion_encabezado="&RS("posicion")&" order by id;",Conn, 1,3%>
+                                    RsSub.Open "select id,idpreguntae idpregunta,descripcionpregunta from preguntad_360 where idpreguntae=" & rs("id") & " order by id;",Conn, 1,3%>
                                     <div class="no-padding" >
                                         <table class="mws-table">
                                             <thead>
-                                                <tr>
-                                                    <th>#</th>
-                                                    <%while not RsSub.eof%>
-                                                    <th rel="popover" data-trigger="hover" data-placement="top" value="<%=RsSub("idpregunta")%>" title="<%=RsSub("descripcionpregunta")%>"><%=RsSub("idpregunta")%></th>
-                                                    <%RsSub.movenext
-                                        			wend%>
+                                                <tr><th style="font-size:0.8em;font-style:italic;color:#333333;">Descripción</th>
+                                                <% dim j
+                                                    j=1
+                                                    while j<=31%>
+                                                <td style="font-size:0.8em;font-style:italic;color:#333333;"><%=j%></td>
+                                                <%j=j+1
+                                                wend%>
                                                 </tr>
-                                            </thead>
-                                            <tbody>
+                                            
+                                                    <%do while not RsSub.eof%>
+                                                    <tr><td style="font-size:0.8em;"><%=RsSub("descripcionpregunta")%></td>
+                                                   <% i=1
+                                                        while i<=31%>
+                                                            <td id="<%=RsSub("id")&"_"&i%>">&nbsp;</td>
+                                                        <%i=i+1
+                                                        wend%>
+                                                    </tr>
+                                                    <%RsSub.movenext
+                                                    loop%>
                                                 
-										<% dim i
-										i=1
-										while i<=31%>
-                                            <tr name="<%=i%>">
-                                                    <td><%=i%></td>
-                                                    <%
-													RsSub.close
-													RsSub.Open "select id,idpregunta,descripcionpregunta from preguntad_360 where poscicion_encabezado="&RS("posicion")&" order by id;",Conn, 1,3
-													while not RsSub.eof%>
-                                                    <td id="<%=RsSub("idpregunta")&"_"&i%>"></td>
-                                                    <%RsSub.movenext
-                                        			wend%>
-                                                </tr>
-                                        <%i=i+1
-                                        wend%>
-                                            </tbody>
+                                            </thead>
                                     </table>
                                 </div>
                             </fieldset>
                             <%rs.movenext
-							wend%>
+                            loop%>
                         </form>
                     </div>
                     <%end if%>
                 </div>
                 <!-- Panels End -->
                 <div class="mws-button-row">
-                    	<input type="button" id="BtnBuscarBus" value="Buscar" class="btn btn-primary" />
+                        <input type="button" id="BtnBuscarBus" value="Buscar" class="btn btn-primary" />
                         <%if Request.QueryString("bus")<>"" then%>
                         <input type="button" id="BtnLimpiar" value="Limpiar" class="btn btn-Yellow" />
                         <%end if%>
@@ -248,7 +245,7 @@ Set Conn = Server.CreateObject("ADODB.Connection")
                        
             <!-- Footer -->
             <div id="mws-footer">
-            	<%fote%>
+                <%fote%>
             </div>
             
         </div>
@@ -328,54 +325,60 @@ Set Conn = Server.CreateObject("ADODB.Connection")
     if (month == 11) { var mes = "12" }
     var fecha = mes + "/" + date + "/" + year
     document.getElementById('date').value = fecha
-	<%
-	if Request.QueryString("bus")<>"" then
-	%>document.getElementById('date').value= "<%=Request.QueryString("fecha")%>";
-		$('#bus> option[value="<%=Request.QueryString("bus")%>"]').attr('selected', 'selected');
-	<%
+    <%
+    if Request.QueryString("bus")<>"" then
+    %>document.getElementById('date').value= "<%=Request.QueryString("fecha")%>";
+        $('#bus> option[value="<%=Request.QueryString("bus")%>"]').attr('selected', 'selected');
+    <%
 Set RS = Server.CreateObject("ADODB.Recordset")
-SQL="select concat(icheqd.idpregunta, '_', day(icheq.fecha)) as td, day(icheq.fecha) as dia, month(icheq.fecha) as mes, year(icheq.fecha) as anio, icheq.unidad, icheqd.idpregunta, icheqd.valor, icheqd.descripcion, preg.identificador, preg.lidentificador from (select ncorre,fecha,unidad from ichequeos where month(fecha)='"& mes &"' and year(fecha)='"& ano &"') as icheq, ichequeosd as icheqd inner join preguntad_360 pregd inner join preguntae_360 preg where icheq.ncorre=icheqd.ncorre and icheq.unidad='"& Request.QueryString("bus") &"'  and pregd.idpregunta=icheqd.idpregunta and preg.posicion=pregd.poscicion_encabezado  group by td;"
+SQL="select concat(icheqd.idPregunta, '_', day(icheq.fecha)) as td, day(icheq.fecha) as dia, month(icheq.fecha) as mes, year(icheq.fecha) as anio, icheq.unidad, icheqd.idpregunta, icheqd.valor, icheqd.descripcion, preg.identificador, concat('ide_',preg.id) lidentificador from (select id,fecha,unidad from ichequeos where month(fecha)='"& mes &"' and year(fecha)='"& ano &"' and unidad='"& Request.QueryString("bus") &"') as icheq, ichequeosd as icheqd inner join preguntad_360 pregd inner join preguntae_360 preg where icheq.id=icheqd.idIchequeos and pregd.id=icheqd.idPregunta  and preg.id=pregd.idPreguntae  group by td;"
 RS.Open SQL,Conn,3,1
             While Not RS.eof
     %>
     //alert('<%=RS("td")%>'+' - ' +'<%=RS("valor")%>');
-	contenedor= document.getElementById('<%=RS("td")%>');
-	if(contenedor != null) {
+    contenedor= document.getElementById('<%=RS("td")%>');
+    if(contenedor != null) {
    var valor ='<%=RS("valor")%>';
        
             if(valor==1 && <%= RS("identificador")%>==1){document.getElementById('<%=RS("td")%>').innerHTML = "<img src='images/close.png' rel='popover' data-trigger='hover' data-placement='top' title='<%=RS("descripcion")%>' style='display:block; padding:2px;' />";
-			document.getElementById("<%=RS("lidentificador")%>").className="icol-cross";
-			}
+            document.getElementById("<%=RS("lidentificador")%>").className="icol-cross";
+            }
             if(valor==0 && <%= RS("identificador")%>==1){document.getElementById('<%=RS("td")%>').innerHTML = "<img src='images/check.png'/>";}
             if(valor==2 && <%= RS("identificador")%>==2){
                         document.getElementById('<%=RS("td")%>').innerHTML = "<img src='images/mal.png' width='16' height='16'  rel='popover' data-trigger='hover' data-placement='top' title='<%=RS("descripcion")%>' style='display:block;' />";
-				document.getElementById("<%=RS("lidentificador")%>").className="icol-cross";
+                document.getElementById("<%=RS("lidentificador")%>").className="icol-cross";
              }  
              if(valor==1 && <%= RS("identificador")%>==2){document.getElementById('<%= RS("td")%>').innerHTML = "<img src='images/normal.png' height=16 width=16  rel='popover' data-trigger='hover' data-placement='top' title='<%=RS("descripcion")%>' style='display:block;' />";
-			 document.getElementById("<%=RS("lidentificador")%>").className="icol-cross";
-			 }  
+             document.getElementById("<%=RS("lidentificador")%>").className="icol-cross";
+             }  
              if(valor==0 && <%= RS("identificador")%>==2){document.getElementById('<%= RS("td")%>').innerHTML = "<img src='images/bien.png' height=16 width=16/>";}
     }
-	<%
+    <%
     Response.Flush
         RS.Movenext
         Wend
-		end if
+        end if
     %>
-	$(document).ready(function(){
-		$("td:nth-child(2)").each(function(){
-			if($(this).html()==""){
-				 $(this).parent().fadeOut(); 
-			}
-		});
-		$("#BtnBuscarBus").click(function(){
-			location.href="resumen360.asp?bus="+$("#bus").val()+"&fecha="+$("#date").val();
-		});
-		$("#BtnLimpiar").click(function(){
-			location.href="resumen360.asp";
-		});
-		$(".mws-form .pull-right").css("display","none");
-	});
+    $(document).ready(function(){
+        $("#formulario").show();
+        $("td:nth-child(2)").each(function(){
+            if($(this).html()==""){
+                 $(this).parent().fadeOut(); 
+            }
+        });
+        $("#BtnBuscarBus").click(function(){
+            location.href="resumen360.asp?bus="+$("#bus").val()+"&fecha="+$("#date").val();
+        });
+        $("#BtnLimpiar").click(function(){
+            location.href="resumen360.asp";
+        });
+        $(".mws-table thead tr").mouseover(function(){
+          $(this).css("color", "#d80000");
+        }).mouseout(function(){
+          $(this).css("color", "#333333");
+        });
+        $(".mws-form .pull-right").css("display","none");
+    });
 </script>
 </body>
 </html>
