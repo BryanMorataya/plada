@@ -27,14 +27,15 @@
   'session("conec") = "Provider=MSDASQL;DRIVER={MySQL ODBC 5.2w Driver};SERVER=localhost;DATABASE=dbtrans;UID=root;PWD=root;" 
 '' session("conec") = "Provider=MSDASQL;DRIVER={MySQL ODBC 5.2w Driver};SERVER=localhost;DATABASE=dbtrans;UID=root;PWD=root;" 
 
-    session("conec") = "Driver={MySQL ODBC 5.3 ANSI Driver};Server=localhost;Port=3306;Database=dbtranspnc;User=root;Password=admin;Option=3;" 
+    session("conec") = "Driver={MySQL ODBC 5.3 ANSI Driver};Server=basededatos001.usgenera.com;Port=3306;Database=plada_dbtrans;User=root;Password=Union413;Option=3;"
+'	session("conec") = "Driver={MySQL ODBC 5.1 ANSI Driver};Server=localhost;Port=3306;Database=dbtransgentrac;User=gentrac;Password=gentrac;Option=3;" 
     DSN = session("conec")
     response.write dsn
 	Set RS = Server.CreateObject("ADODB.Recordset")
 	Set Conn = Server.CreateObject("ADODB.Connection")
 	StrUser = Request.Form("username")
 	Conn.Open DSN
-	SQL = "SELECT * FROM userw WHERE username='" & StrUser & "'" 
+	SQL = "CALL Login('"&StrUser&"', '"&Request.Form("password")&"');" 
 	RS.Open SQL,Conn,3,1
 	%>
 	<%
@@ -47,30 +48,27 @@
 		session("flotilla")=rs("flotilla")
 		session("ID")=rs("id")
 		session("flota") = rs("flotilla")
-		if Request.Form("password") = RS("password") then
+		session("nombre")=rs("FirstName")&" "&rs("LastName")
+
 		  if RS("Status") = True then
 		  	session("Admin") = True
 			session("Good") = True
 			session.Timeout = 100
 			Response.Redirect("dashboard.asp")	
 			End if
-        else 
-        		Response.Redirect("index.asp")
-		End if
+
 	'close connection before processing send redirect
 	' Redirect to the success login
-		if Request.Form("password") = RS("password") then
+
 			if RS("Status") = False then
 			session("Good") = True
 			session.Timeout = 100
-			Response.Redirect("dashboard.asp")
+			Response.Redirect("index.asp")
 			End if
-	    else
 '			session("Good") = True
 '			session.Timeout = 100
 		    Response.Redirect("index.asp")
        End if
-	End if
 '			session("Good") = True
 '			session.Timeout = 100
 '			Response.Redirect("default.asp")

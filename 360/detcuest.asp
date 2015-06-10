@@ -27,7 +27,7 @@
     StrParam = Request.QueryString("UserID")
     strds2 = session("conec")
 	Conn.Open strds2
-	SQL = "SELECT * FROM preguntad_360 where idpreguntae = " & StrParam & " and sisEstado='H' order by IDpregunta asc"
+	SQL = "SELECT * FROM preguntad_360 where idpreguntae = " & StrParam & " and sisEstado='H' order by Idpreguntae asc"
 	RS.Open SQL,Conn,3,1
 %>
 <head>

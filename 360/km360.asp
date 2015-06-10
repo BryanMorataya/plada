@@ -129,7 +129,7 @@
 							Set RS = Server.CreateObject("ADODB.Recordset")
 							Set Conn = Server.CreateObject("ADODB.Connection")
 							Conn.Open DSN
-							If Session("flota")<>1 Then
+							If Session("flota")<>0 Then
 							SqlQuery="select tipo.id_tipo_vehiculo, tipo.tipo_vehiculo from tipo_vehiculo tipo inner join _vehiculos veh where veh.empresap="&Session("flota")&" and tipo.id_tipo_vehiculo=veh.tveh and id_tipo_vehiculo > 1 group by id_tipo_vehiculo order by id_tipo_vehiculo"
 							Else
 							SqlQuery="select id_tipo_vehiculo, tipo_vehiculo from tipo_vehiculo where id_tipo_vehiculo > 1;"
