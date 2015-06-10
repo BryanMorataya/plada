@@ -90,9 +90,6 @@ Copyright Union systems,s.a. 2013. All Rights Reserved.
 <%
 end sub
 
-
-
-
 Sub conteoempresas()
 'set Conn = Server.CreateObject("ADODB.Connection")
 'DSN = session("conec")
@@ -100,7 +97,7 @@ Sub conteoempresas()
 'Set Rsx = Server.CreateObject("ADODB.Recordset")
 'Rsx.Open "SELECT count(id) as total from flotilla",Conn, 1,3
 'response.write  Rsx("total") 
-response.write "2"
+response.write "1"
 'set Rsx = nothing
 'set Conn = nothing
 End Sub
