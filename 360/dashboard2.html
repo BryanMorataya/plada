@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8" />
+
+<!-- Viewport Metatag -->
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+
+<!-- Plugin Stylesheets first to ease overrides -->
+<link rel="stylesheet" type="text/css" href="plugins/colorpicker/colorpicker.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="custom-plugins/wizard/wizard.css" media="screen" />
+
+<!-- Required Stylesheets -->
+<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/fonts/ptsans/stylesheet.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/fonts/icomoon/style.css" media="screen" />
+
+<link rel="stylesheet" type="text/css" href="css/mws-style.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/icons/icol16.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/icons/icol32.css" media="screen" />
+
+<!-- Demo Stylesheet -->
+<link rel="stylesheet" type="text/css" href="css/demo.css" media="screen" />
+
+<!-- jQuery-UI Stylesheet -->
+<link rel="stylesheet" type="text/css" href="jui/css/jquery.ui.all.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="jui/jquery-ui.custom.css" media="screen" />
+
+<!-- Theme Stylesheet -->
+<link rel="stylesheet" type="text/css" href="css/mws-theme.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/themer.css" media="screen" />
+
+<title>MWS Admin - Dashboard</title>
+
+</head>
+
+<body>
+
+	<!-- Themer (Remove if not needed) -->  
+    <!-- Themer End -->
+
+	<!-- Header -->
+	<div id="mws-header" class="clearfix">
+    
+    	<!-- Logo Container -->
+    	<div id="mws-logo-container">
+        
+        	<!-- Logo Wrapper, images put within this wrapper will always be vertically centered -->
+        	<div id="mws-logo-wrap">
+            	<img src="images/mws-logo.png" alt="mws admin" />
+			</div>
+        </div>
+        
+        <!-- User Tools (notifications, logout, profile, change password) -->
+        <div id="mws-user-tools" class="clearfix">
+   
+        </div>
+    </div>
+    
+    <!-- Start Main Wrapper -->
+    <div id="mws-wrapper">
+    
+    	<!-- Necessary markup, do not remove -->
+		<div id="mws-sidebar-stitch"></div>
+		<div id="mws-sidebar-bg"></div>
+        
+        <!-- Sidebar Wrapper -->
+        <div id="mws-sidebar">
+        
+            <!-- Hidden Nav Collapse Button -->
+            <div id="mws-nav-collapse">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+        	<!-- Searchbox -->
+        	<div id="mws-searchbox" class="mws-inset">
+            	<form action="typography.html">
+                	<input type="text" class="mws-search-input" placeholder="Search..." />
+                    <button type="submit" class="mws-search-submit"><i class="icon-search"></i></button>
+                </form>
+            </div>
+            
+            <!-- Main Navigation -->
+            <div id="mws-navigation">
+                <ul>
+                    <li class="active"><a href="dashboard.html"><i class="icon-home"></i> Dashboard</a></li>
+                    <li><a href="charts.html"><i class="icon-graph"></i> Charts</a></li>
+                    <li><a href="calendar.html"><i class="icon-calendar"></i> Calendar</a></li>
+                    <li><a href="files.html"><i class="icon-folder-closed"></i> File Manager</a></li>
+                    <li><a href="table.html"><i class="icon-table"></i> Table</a></li>
+                    <li>
+                        <a href="#"><i class="icon-list"></i> Forms</a>
+                        <ul>
+                            <li><a href="form_layouts.html">Layouts</a></li>
+                            <li><a href="form_elements.html">Elements</a></li>
+                            <li><a href="form_wizard.html">Wizard</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="widgets.html"><i class="icon-cogs"></i> Widgets</a></li>
+                    <li><a href="typography.html"><i class="icon-font"></i> Typography</a></li>
+                    <li><a href="grids.html"><i class="icon-th"></i> Grids &amp; Panels</a></li>
+                    <li><a href="gallery.html"><i class="icon-pictures"></i> Gallery</a></li>
+                    <li><a href="error.html"><i class="icon-warning-sign"></i> Error Page</a></li>
+                    <li>
+                        <a href="icons.html">
+                            <i class="icon-pacman"></i> 
+                            Icons <span class="mws-nav-tooltip">2000+</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>         
+        </div>
+        
+        <!-- Main Container Start -->
+        <div id="mws-container" class="clearfix">
+        
+        	<!-- Inner Container Start -->
+            <div class="container">
+            
+            	<!-- Statistics Button Container -->
+                
+                <!-- Panels Start -->
+   
+                <!-- Panels End -->
+            </div>
+            <!-- Inner Container End -->
+                       
+            <!-- Footer -->
+            <div id="mws-footer">
+            	Copyright Your Website 2012. All Rights Reserved.
+            </div>
+            
+        </div>
+        <!-- Main Container End -->
+        
+    </div>
+
+    <!-- JavaScript Plugins -->
+    <script type="text/javascript" src="js/libs/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="js/libs/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="js/libs/jquery.placeholder.min.js"></script>
+    <script type="text/javascript" src="custom-plugins/fileinput.js"></script>
+
+    <!-- jQuery-UI Dependent Scripts -->
+    <script type="text/javascript" src="jui/js/jquery-ui-1.9.0.min.js"></script>
+    <script type="text/javascript" src="jui/jquery-ui.custom.min.js"></script>
+    <script type="text/javascript" src="jui/js/jquery.ui.touch-punch.js"></script>
+
+    <!-- Plugin Scripts -->
+    <script type="text/javascript" src="plugins/datatables/jquery.dataTables.min.js"></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="js/libs/excanvas.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="plugins/flot/jquery.flot.min.js"></script>
+    <script type="text/javascript" src="plugins/flot/plugins/jquery.flot.tooltip.min.js"></script>
+    <script type="text/javascript" src="plugins/flot/plugins/jquery.flot.pie.min.js"></script>
+    <script type="text/javascript" src="plugins/flot/plugins/jquery.flot.stack.min.js"></script>
+    <script type="text/javascript" src="plugins/flot/plugins/jquery.flot.resize.min.js"></script>
+    <script type="text/javascript" src="plugins/colorpicker/colorpicker-min.js"></script>
+    <script type="text/javascript" src="plugins/validate/jquery.validate-min.js"></script>
+    <script type="text/javascript" src="custom-plugins/wizard/wizard.min.js"></script>
+
+    <!-- Core Script -->
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/core/mws.js"></script>
+
+    <!-- Themer Script (Remove if not needed) -->
+    <script type="text/javascript" src="js/core/themer.js"></script>
+
+    <!-- Demo Scripts (remove if not needed) -->
+    <script type="text/javascript" src="js/demo/demo.dashboard.js"></script>
+
+</body>
+</html>
+
+<body>
+    <form id="form1" runat="server">
+    <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+    </asp:ToolkitScriptManager>
+<div id="daddy">
+	<div id="header">
+		<div id="logo"><a href="./"><img src="images/logo.gif" alt="Your Company Logo" width="318" height="85" /></a><span id="logo-text"><a href="./">Seguros 
+            Union</a></span></div><!-- logo -->
+		<div id="menu">
+			<ul>
+				<li><a href="./menu.aspx" id="active">Inicio</a></li>
+				<li><a href="./">Nosotros</a></li>
+				<li><a href="./">Servicios</a></li>
+				<li><a href="./">Foro de ayuda</a></li>
+				<li><a href="./">Contacto</a></li>
+			</ul>
+		</div><!-- menu -->
+		<div id="ticker">
+			</div><!-- ticker -->
+		<div id="headerimage">
+			<!-- download -->
+			<!-- icons -->
+		</div>
+		<!-- headerimage -->
+	</div>
+	<!-- header -->
+	<div id="content2">
+    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+        <contentTemplate>
+		<div id="cA">
+			<div class="Ctopleft"></div>
+			<h3><h3>&nbsp;</h3>
+            <h3><FONT FACE="Arial" SIZE=6 COLOR="003399">Menu</FONT></h3></h3>
+            <h3>&nbsp;&nbsp;<FONT FACE="Arial" SIZE=6 COLOR="999999">---------------------</FONT></h3>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </p>
+		   <asp:Accordion ID="Accordion1" runat="server" CssClass="accordion" AutoSize="None"
+        FadeTransitions="true" TransitionDuration="250"
+    FramesPerSecond="40" ContentCssClass="accordionContent" 
+                HeaderCssClass="accordionHeader">
+            <HeaderTemplate>MENU</HeaderTemplate>
+      <Panes>
+                        <asp:AccordionPane ID="AccordionPane1" runat="server">
+           <Header>CATÁLOGOS</Header>
+            <Content>  
+                <li><a href="clientes.aspx">CLIENTES</a></li>
+                <li><a href="aseguradora.aspx">ASEGURADORAS</a></li>
+                <li><a href="ajustadorplanta.aspx">AJUSTADORES</a></li>
+                <li><a href="abogados.aspx">ABOGADOS</a></li>
+                <li><a href="Pro_Serv.aspx">SERVICIOS</a></li>
+                <li><a href="Area.aspx">AREAS</a></li>
+                <li><a href="bien_persona.aspx">ASIGNACION BIENES</a></li>
+                <li><a href="Empresa.aspx">EMPRESAS</a></li>
+                <li><a href="Sucursal.aspx">SUCURSALES</a></li>
+                <li><a href="Empleado.aspx">EMPLEADOS</a></li>
+                <li><a href="Puesto.aspx">PUESTOS</a></li>
+            </Content>
+            </asp:AccordionPane>
+            
+            <asp:AccordionPane ID="AccordionPane2" runat="server">
+            <Header>GESTION VEHICULOS</Header>
+            <Content>  
+                <li><a href="Tipo_Vehiculo.aspx">TIPO VEHICULO</a></li>
+                <li><a href="Rama_Vehiculo.aspx">MARCA</a></li>
+                <li><a href="Linea_Vehiculo.aspx">LINEA</a></li>
+                <li><a href="Modelo_Vehiculo.aspx">MODELO</a></li>
+                </Content>
+                        </asp:AccordionPane>  
+              
+            <asp:AccordionPane ID="AccordionPane3" runat="server">
+            <Header>PÓLIZAS</Header>
+            <Content>  
+                <li><a href="polizanueva.aspx">POLIZA NUEVA</a></li>
+                <li><a href="bienpoliza.aspx">BIENES POLIZA</a></li>
+                <li><a href="cobro.aspx">PAGO POLIZA</a></li>
+            </Content>
+            </asp:AccordionPane>
+                        <asp:AccordionPane ID="AccordionPane4" runat="server">
+            <Header>RECLAMOS</Header>
+            <Content>  
+                <li><a href="Reclamo.aspx">INGRESO RECLAMO</a></li>
+                </Content>
+                        </asp:AccordionPane>
+                        <asp:AccordionPane ID="AccordionPane5" runat="server">
+            <Header>CONSULTAS</Header>
+            <Content>  
+                <li><a href="ClienteBien.aspx">BIENES SEGUN CLIENTE</a></li>
+                <li><a href="PolizaCliente.aspx">POLIZAS SEGUN CLIENTE</a></li>
+                <li><a href="ServicioCliente.aspx">SERVICIOS SEGUN CLIENTE</a></li>
+                <li><a href="PagosSegunPoliza.aspx">PAGOS SEGUN NO. POLIZA</a></li>
+                </Content>
+                        </asp:AccordionPane>
+                        
+                                   
+                                    <asp:AccordionPane ID="AccordionPane6" runat="server">
+            
+            
+            <Header>CERRAR SESION</Header>
+            <Content>  
+                <li><a href="../Default.aspx">SALIR</a></li>
+            </Content>
+            </asp:AccordionPane>                                   
+           </Panes>
+            </asp:Accordion>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                Bienvenido
+                           <FONT FACE="times new roman" SIZE=4 COLOR="003399">
+                <asp:Label ID="LblUser" runat="server"></asp:Label>.</FONT></p>
+		</div>
+        <div id="cB">
+			<div class="Ctopright"></div>
+			<div id="dataasp">
+				<h3>&nbsp;</h3>
+                 <h3><FONT FACE="Arial" SIZE=6 COLOR="003399">Abogados</FONT></h3>
+                <h3><FONT FACE="Arial" SIZE=6 COLOR="999999">
+                    -------------------------------------------------</FONT></h3>
+				
+				
+					<table class="tabladatos">
+                    <tr>
+                    <td class="columma" colspan="2">
+                        Nombre: 
+                        <asp:TextBox ID="TxtNom_abg" runat="server" CssClass="asptextbox" MaxLength="150" 
+                            Width="424px" ></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                            ControlToValidate="TxtNom_abg" Display="None" 
+                            ErrorMessage="Ingrese Nombre" SetFocusOnError="True">*</asp:RequiredFieldValidator>
+                        <asp:ValidatorCalloutExtender ID="RequiredFieldValidator1_ValidatorCalloutExtender" 
+                            runat="server" Enabled="True" TargetControlID="RequiredFieldValidator1">
+                        </asp:ValidatorCalloutExtender>
+                </td>
+                                   </tr>
+                 <tr><td class="columma">
+                        Teléfono:<asp:TextBox 
+                                                           ID="TxtTel_abg" runat="server" 
+                                                           CssClass="asptextbox" MaxLength="10" 
+                            Width="121px" ></asp:TextBox>
+                </td>
+          <td class="columma">
+              Celular:<asp:RequiredFieldValidator 
+                  ID="RequiredFieldValidator5" runat="server" 
+                  ControlToValidate="Txtcel_abg" Display="None" 
+                  ErrorMessage="Ingrese celular">*</asp:RequiredFieldValidator>
+              <asp:ValidatorCalloutExtender ID="RequiredFieldValidator5_ValidatorCalloutExtender" 
+                  runat="server" Enabled="True" TargetControlID="RequiredFieldValidator5">
+              </asp:ValidatorCalloutExtender>
+              <asp:TextBox ID="Txtcel_abg" 
+                            runat="server" CssClass="asptextbox" Width="121px" 
+                  MaxLength="10" ></asp:TextBox>
+                </td>
+                </tr>
+                <tr><td class="columma">
+                        Correo Electrónico:<asp:TextBox 
+                            ID="TxtCorreo_abg" runat="server" 
+                                                           CssClass="asptextbox" MaxLength="75" 
+                            Width="121px" ></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
+                            ControlToValidate="TxtCorreo_abg" Display="None" 
+                            ErrorMessage="Ingrese correo" SetFocusOnError="True">*</asp:RequiredFieldValidator>
+                        <asp:ValidatorCalloutExtender ID="RequiredFieldValidator4_ValidatorCalloutExtender" 
+                            runat="server" Enabled="True" TargetControlID="RequiredFieldValidator4">
+                        </asp:ValidatorCalloutExtender>
+                </td>
+                <td class="columma">
+                        Aseguradora:<asp:DropDownList 
+                            ID="DropId_Asgdra" runat="server" 
+                                        style="float:right;margin-right:30px;width:120px;border:1px solid #dcdcdc;background:#fff;padding:2px;
+                                        color:#323232;font:11px Arial, Helvetica, sans-serif;">
+                                  </asp:DropDownList></td>
+                </tr>
+                <tr><td class="columma">
+                        <asp:Label ID="LblEstado" runat="server" ForeColor="Red"></asp:Label>
+                </td>
+                <td class="columma">
+                        &nbsp;</td>
+                </tr>
+                                                       <tr>
+                    <td class="columma" colspan="2" style="background-color:#E6E6E6;">
+                        <h3>Acciones</h3></td>
+                                   </tr>
+                                                                                          <tr>
+                    <td class="columma" colspan="2">
+                              <asp:ImageButton ID="BtnGuardar" runat="server" Height="39px" 
+                                  ImageAlign="Middle" ImageUrl="~/images/botones/db1.jpg" Width="43px" />
+                              Guardar&nbsp;
+                              <asp:ImageButton ID="BtnModificar" runat="server" Enabled="False" Height="39px" 
+                                  ImageAlign="Middle" ImageUrl="~/images/botones/apuntes6.jpg" 
+                                  Width="43px" />
+                              Modificar&nbsp;&nbsp;
+                              <asp:ImageButton ID="BtnCancelar" runat="server" Enabled="False" Height="39px" 
+                                  ImageAlign="Middle" ImageUrl="~/images/botones/cancelar.jpg" 
+                                  Width="43px" CausesValidation="False" />
+                              Cancelar
+                               
+                                  <asp:ImageButton ID="BtnBuscar" runat="server" Height="39px" 
+                                      ImageAlign="Middle" ImageUrl="~/images/botones/lupa2.jpg" Width="43px" 
+                                      CausesValidation="False" style="float:right;"/>
+                               
+                                  <asp:DropDownList ID="DropAjustador" runat="server" CssClass="aspdrop" 
+                                      Width="200px" 
+                                      style="float:right;width:150px;border:1px solid #dcdcdc;
+                                      background:#fff;padding:2px;color:#323232;font:11px Arial, Helvetica, sans-serif;" 
+                                      AutoPostBack="True">
+                                  </asp:DropDownList>
+                                                                                              </td>
+                                   </tr>
+                </table>
+				</contentTemplate>
+                </asp:UpdatePanel>
+				
+			</div><!-- cB1 -->
+			
+		</div><!-- cB -->
+		<div class="Cpad">
+			<br class="clear" /><div class="Cbottomleft"></div><div class="Cbottom"></div><div class="Cbottomright"></div>
+		</div><!-- Cpad -->
+	</div><!-- content -->
+	<div id="properspace"></div><!-- properspace -->
+</div><!-- daddy -->
+<div id="footer">
+	<div id="foot">
+		<div id="foot1"><a href="./">Politicas de Privacidad</a> - <a href="./">Terminos de 
+            uso</a></div><!-- foot1 -->
+		<div id="foot2">
+			CopyRight 2012, UNIÓN SEGUROS, S.A. Desarrollado por&nbsp; <a href="http://www.grupo-genera.com/systems/index.html" title="We digitalize your ambitions"> Union Systems</a> 
+            , Derechos Reservados.</div><!-- foot1 -->
+	</div><!-- foot -->
+</div><!-- footer -->
+    </form>
+</body>
