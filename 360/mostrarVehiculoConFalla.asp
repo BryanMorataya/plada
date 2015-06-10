@@ -88,17 +88,14 @@ Dim Conn ' Open Database Connection
 	Set Conn = Server.CreateObject("ADODB.Connection")
 	Conn.Open DSN
 	quev = session("empn")
-	SQL1="select descripcionpregunta from preguntad_360 where idpregunta='"&idpreg&"';"
+	SQL1="select descripcionpregunta from preguntad_360 where id='"&idpreg&"';"
 	RS1.Open SQL1,Conn,3,1
 	descripcionpreg=rs1("descripcionpregunta")
 	if flota="0" then
-		SQL="select icheqd.ncorre,icheqd.imagen,preg.descripcionpregunta,icheq.fecha,icheq.unidad,icheqd.idpregunta,icheqd.descripcion ,preg.descripcionpregunta,pil.nombre from ichequeos icheq  inner join ichequeosd icheqd inner join pilotos pil inner join _vehiculos veh on icheq.fecha between '"&inicial&"' and '"&final&"' and icheq.ncorre=icheqd.ncorre and icheq.piloto=pil.id and icheqd.valor>0 and veh.codigo=icheq.unidad inner join preguntad_360 preg on  preg.idpregunta=icheqd.idpregunta where preg.descripcionpregunta='"&descripcionpreg&"' order by icheqd.ncorre desc"
-		'response.write(SQL)
-		'SQL = "select icheq.fecha,icheq.unidad,icheqd.idpregunta,icheqd.descripcion from ichequeos icheq inner join ichequeosd icheqd inner join _vehiculos veh on icheq.fecha between '"&inicial&"' and '"&final&"' and icheqd.idpregunta='"&idpreg&"' and icheq.ncorre=icheqd.ncorre and icheqd.valor>0 and veh.codigo=icheq.unidad order by icheqd.ncorre desc;"
+		SQL="select icheqd.idIchequeos id,icheqd.imagen,preg.descripcionpregunta,icheq.fecha,icheq.unidad,icheqd.idpregunta,icheqd.descripcion ,preg.descripcionpregunta,pil.nombre from ichequeos icheq inner join ichequeosd icheqd inner join pilotos pil inner join _vehiculos veh on icheq.fecha between '"&inicial&"' and '"&final&"' and icheq.id=icheqd.idIchequeos and icheq.piloto=pil.id and icheqd.valor>0 and veh.codigo=icheq.unidad inner join preguntad_360 preg on preg.id=icheqd.idPregunta where preg.descripcionpregunta='"&descripcionpreg&"' order by icheqd.id desc"
 	else
-		SQL = "select icheqd.ncorre,icheqd.imagen,preg.descripcionpregunta,icheq.fecha,icheq.unidad,icheqd.idpregunta,icheqd.descripcion ,preg.descripcionpregunta,pil.nombre from ichequeos icheq  inner join ichequeosd icheqd inner join pilotos pil inner join _vehiculos veh on icheq.fecha between '"&inicial&"' and '"&final&"' and icheq.ncorre=icheqd.ncorre and icheq.piloto=pil.id and icheqd.valor>0 and veh.codigo=icheq.unidad and veh.empresap='"&flota&"' inner join preguntad_360 preg on  preg.idpregunta=icheqd.idpregunta where preg.descripcionpregunta='"&descripcionpreg&"' order by icheqd.ncorre desc"
+		SQL = "select icheqd.idIchequeos id,icheqd.imagen,preg.descripcionpregunta,icheq.fecha,icheq.unidad,icheqd.idpregunta,icheqd.descripcion ,preg.descripcionpregunta,pil.nombre from ichequeos icheq inner join ichequeosd icheqd inner join pilotos pil inner join _vehiculos veh on veh.empresap='"&flota&"' and icheq.fecha between '"&inicial&"' and '"&final&"' and icheq.id=icheqd.idIchequeos and icheq.piloto=pil.id and icheqd.valor>0 and veh.codigo=icheq.unidad inner join preguntad_360 preg on preg.id=icheqd.idPregunta where preg.descripcionpregunta='"&descripcionpreg&"' order by id desc"
 	end if
-	'response.write(SQL)
 	RS.Open SQL,Conn,3,1
 	count=0
 %>
@@ -119,10 +116,10 @@ Dim Conn ' Open Database Connection
             <%end if%>
 			<td><!--<i class="icol-arrow-right check" style="cursor:pointer; margin-left:5px;"></i>-->
 			<div class="mws-panel-content">
-			<i class="icol-email email" id="mws-form-dialog-<%=RS("ncorre")%>-mdl-btn" style="cursor:pointer; margin-left:5px;"></i>
-                            <div id="mws-form-dialog-<%=RS("ncorre")%>">
-                                <form id="mws-validate-<%=RS("ncorre")%>" class="mws-form">
-                                    <div id="mws-validate-<%=RS("ncorre")%>-error" class="mws-form-message error" style="display:none;"></div>
+			<i class="icol-email email" id="mws-form-dialog-<%=RS("id")%>-mdl-btn" style="cursor:pointer; margin-left:5px;"></i>
+                            <div id="mws-form-dialog-<%=RS("id")%>">
+                                <form id="mws-validate-<%=RS("id")%>" class="mws-form">
+                                    <div id="mws-validate-<%=RS("id")%>-error" class="mws-form-message error" style="display:none;"></div>
                                     <div class="mws-form-inline">
                                         <div class="mws-form-row">
                                             <label class="mws-form-label">Para:</label>
@@ -140,7 +137,7 @@ Dim Conn ' Open Database Connection
                                             <label class="mws-form-label">Mensaje</label>
                                         </div>
 										<div class="mws-form-row">
-                                                <textarea name="TxtMensaje" id="cleditor-<%=RS("ncorre")%>" class="TxtMensaje " >
+                                                <textarea name="TxtMensaje" id="cleditor-<%=RS("id")%>" class="TxtMensaje " >
 												<strong><em>Se Ha Reportado una Falla:</em></strong><br/><br/>
 												<table>
 													<thead><tr style="background-color:#1a93d0; color:#FFFFFF;"><th>Fecha</th><th>Unidad</th><th>Pregunta</th><th>Descripci&oacute;n</th><th>Piloto Asignado</th></tr></thead>
@@ -154,7 +151,7 @@ Dim Conn ' Open Database Connection
 												</table>
 												<br/><br/>
 												<% if not isnull(RS("imagen")) and rs("imagen")<>"" then%>
-												<img src="http://gentrac.usflota.com/360/fallas/<%=RS("imagen")%>" width=450; />
+												<img src="" width=450; />
 												<%end if%>
 												</textarea>
 										</div>
@@ -165,7 +162,7 @@ Dim Conn ' Open Database Connection
 				<script>
 				$(document).ready(function(){
 				
-					 $("#mws-form-dialog-<%=RS("ncorre")%>").dialog({
+					 $("#mws-form-dialog-<%=RS("id")%>").dialog({
 						autoOpen: false,
 						title: "Enviar Correo",
 						modal: true,
@@ -173,11 +170,11 @@ Dim Conn ' Open Database Connection
 						buttons: [{
 							text: "Enviar",
 							click: function () {
-								$(this).find('form#mws-validate-<%=RS("ncorre")%>');
-								$.post("webservices/emailFalla360.asp",{para: $(this).find('form#mws-validate-<%=RS("ncorre")%> .TxtPara').val(), asunto: $(this).find('form#mws-validate-<%=RS("ncorre")%> .TxtAsunto').val(),mensaje:$(this).find('form#mws-validate-<%=RS("ncorre")%> iframe').contents().find('body').html()},function(data){
+								$(this).find('form#mws-validate-<%=RS("id")%>');
+								$.post("webservices/emailFalla360.asp",{para: $(this).find('form#mws-validate-<%=RS("id")%> .TxtPara').val(), asunto: $(this).find('form#mws-validate-<%=RS("id")%> .TxtAsunto').val(),mensaje:$(this).find('form#mws-validate-<%=RS("id")%> iframe').contents().find('body').html()},function(data){
 									$.each(data.datos,function(index,item){
 										if(item.error=="0"){
-											$("#mws-form-dialog-<%=RS("ncorre")%>").dialog("close");
+											$("#mws-form-dialog-<%=RS("id")%>").dialog("close");
 										}else{
 											alert(item.error);
 										}
@@ -186,13 +183,13 @@ Dim Conn ' Open Database Connection
 							}
 						}]
 					});
-					$("#mws-form-dialog-<%=RS("ncorre")%>-mdl-btn").bind("click", function (event) {
-						$("#mws-form-dialog-<%=RS("ncorre")%>").dialog("option", {
+					$("#mws-form-dialog-<%=RS("id")%>-mdl-btn").bind("click", function (event) {
+						$("#mws-form-dialog-<%=RS("id")%>").dialog("option", {
 							modal: true
 						}).dialog("open");
 						event.preventDefault();
 					});
-					$( '#cleditor-<%=RS("ncorre")%>').cleditor();
+					$( '#cleditor-<%=RS("id")%>').cleditor();
 				});
 				</script>
 			

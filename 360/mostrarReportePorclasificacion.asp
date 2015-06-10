@@ -17,9 +17,9 @@ Dim Conn ' Open Database Connection
 	Conn.Open DSN
 	quev = session("empn")
 	if flota="0" then
-		SQL="select pregd.idpregunta,pregd.descripcionpregunta,count(pregd.idpregunta) errores from ichequeosd icheqd inner join ichequeos icheq inner join preguntad_360 pregd inner join preguntae_360 preg on icheq.fecha between '"&inicial&"' and '"&final&"' and icheq.ncorre=icheqd.ncorre and icheqd.valor>0 and icheqd.idpregunta=pregd.idpregunta and preg.descripcion = (select descripcion from preguntae_360 where posicion="&clasificacion&") and pregd.poscicion_encabezado=preg.posicion group by pregd.descripcionpregunta order by idpregunta;"
+		SQL="select pregd.id,pregd.descripcionpregunta,sum(icheqd.valor) errores from ichequeosd icheqd inner join (select id from ichequeos where fecha between '"&inicial&"' and '"&final&"') icheq on icheqd.idIchequeos=icheq.id inner join preguntad_360 pregd on icheqd.idPregunta=pregd.id inner join preguntae_360 preg on pregd.idPreguntae=preg.id where preg.id="&clasificacion&" and icheqd.valor>0 group by pregd.id order by errores desc;"
 	else
-		SQL="select pregd.idpregunta, pregd.descripcionpregunta, count(pregd.idpregunta) errores, icheq.unidad from ichequeosd icheqd inner join ichequeos icheq inner join preguntad_360 pregd inner join preguntae_360 preg inner join _vehiculos veh ON icheq.fecha between '"&inicial&"' and '"&final&"' and icheq.ncorre = icheqd.ncorre and icheqd.valor > 0 and icheqd.idpregunta = pregd.idpregunta and preg.descripcion = (select descripcion from preguntae_360 where posicion = "&clasificacion&") and pregd.poscicion_encabezado = preg.posicion and veh.empresap = '"&flota&"' and veh.codigo = icheq.unidad group by pregd.descripcionpregunta order by idpregunta;"
+		SQL="select pregd.id,pregd.descripcionpregunta,sum(icheqd.valor) errores from ichequeosd icheqd inner join (select id, unidad from ichequeos where fecha between '"&inicial&"' and '"&final&"') icheq on icheqd.idIchequeos=icheq.id inner join preguntad_360 pregd on icheqd.idPregunta=pregd.id inner join preguntae_360 preg on pregd.idPreguntae=preg.id inner join _vehiculos veh on veh.empresap = '"&flota&"' and veh.codigo = icheq.unidad where preg.id="&clasificacion&" and icheqd.valor>0 group by pregd.id order by errores desc;"
 	end if
 	RS.Open SQL,Conn,3,1
 	count=0
@@ -32,10 +32,10 @@ Dim Conn ' Open Database Connection
 			<%While Not Rs.Eof%>
 				<%if count=0 then
 				%>{Clasificacion: "<%=RS("descripcionpregunta")%>".match(/.{1,34}/g).join("-\n"),
-                Cantidad: <%=RS("errores")%>,url:"mostrarVehiculoConFalla.asp?flota=<%=flota%>&preg=<%=RS("idpregunta")%>&inicial=<%=inicial%>%&final=<%=final%>"}<%
+                Cantidad: <%=RS("errores")%>,url:"mostrarVehiculoConFalla.asp?flota=<%=flota%>&preg=<%=RS("id")%>&inicial=<%=inicial%>%&final=<%=final%>"}<%
 				else
 				%>,{Clasificacion: "<%=RS("descripcionpregunta")%>".match(/.{1,34}/g).join("-\n"),
-                Cantidad: <%=RS("errores")%>,url:"mostrarVehiculoConFalla.asp?flota=<%=flota%>&preg=<%=RS("idpregunta")%>&inicial=<%=inicial%>%&final=<%=final%>"}<%
+                Cantidad: <%=RS("errores")%>,url:"mostrarVehiculoConFalla.asp?flota=<%=flota%>&preg=<%=RS("id")%>&inicial=<%=inicial%>%&final=<%=final%>"}<%
 				end if%>
 			<%
 			count=count+1

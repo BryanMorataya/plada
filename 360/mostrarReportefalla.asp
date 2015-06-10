@@ -21,9 +21,9 @@ Dim Conn ' Open Database Connection
 	ffinal=split(final,"/")
 	final=ffinal(2)&ffinal(0)&ffinal(1)
 	if flota="0" then
-		SQL="select preg.posicion,preg.descripcion,count(preg.posicion) errores from ichequeosd icheqd inner join (select ncorre,fecha from ichequeos where fecha between '"&inicial&"' and '"&final&"') icheq inner join preguntad_360 pregd inner join preguntae_360 preg on icheq.ncorre=icheqd.ncorre and icheqd.valor>0 and icheqd.idpregunta=pregd.idpregunta and pregd.poscicion_encabezado=preg.posicion group by preg.descripcion order by posicion;"
+		SQL="select preg.id,preg.descripcion,count(preg.id) errores from ichequeosd icheqd inner join (select id,fecha from ichequeos where fecha between '"&inicial&"' and '"&final&"') icheq inner join preguntad_360 pregd inner join preguntae_360 preg on icheq.id=icheqd.idIchequeos and icheqd.valor>0 and icheqd.idPregunta=pregd.id and pregd.idPreguntae=preg.id group by preg.descripcion order by id;"
 	else
-		SQL="select preg.posicion, preg.descripcion, count(preg.posicion) errores from ichequeosd icheqd inner join (select ncorre, fecha, unidad from ichequeos where fecha between '"&inicial&"' and '"&final&"') icheq inner join preguntad_360 pregd inner join preguntae_360 preg inner join _vehiculos veh ON icheq.ncorre = icheqd.ncorre and icheqd.valor > 0 and icheqd.idpregunta = pregd.idpregunta and pregd.poscicion_encabezado = preg.posicion and veh.empresap = '"&flota&"' and veh.codigo = icheq.unidad group by preg.descripcion order by posicion;"
+		SQL="select preg.id, preg.descripcion, count(preg.id) errores from ichequeosd icheqd inner join (select id, fecha, unidad from ichequeos where fecha between '"&inicial&"' and '"&final&"') icheq inner join preguntad_360 pregd inner join preguntae_360 preg inner join _vehiculos veh ON icheq.id = icheqd.idIchequeos and icheqd.valor > 0 and icheqd.idPregunta = pregd.id and pregd.idPreguntae = preg.id and veh.empresap = '"&flota&"' and veh.codigo = icheq.unidad group by preg.descripcion order by id;"
 	end if
 	RS.Open SQL,Conn,3,1
 	count=0
@@ -37,10 +37,10 @@ Dim Conn ' Open Database Connection
 			<%While Not Rs.Eof%>
 				<%if count=0 then
 				%>{Clasificacion: "<%=RS("descripcion")%>".match(/.{1,34}/g).join("-\n"),
-                Cantidad: <%=RS("errores")%>,url:"mostrarReportePorclasificacion.asp?clasificacion=<%=RS("posicion")%>&inicial=<%=inicial%>&final=<%=final%>&flota=<%=flota%>"}<%
+                Cantidad: <%=RS("errores")%>,url:"mostrarReportePorclasificacion.asp?clasificacion=<%=RS("id")%>&inicial=<%=inicial%>&final=<%=final%>&flota=<%=flota%>"}<%
 				else
 				%>,{Clasificacion: "<%=RS("descripcion")%>".match(/.{1,34}/g).join("-\n"),
-                Cantidad: <%=RS("errores")%>,url:"mostrarReportePorclasificacion.asp?clasificacion=<%=RS("posicion")%>&inicial=<%=inicial%>&final=<%=final%>&flota=<%=flota%>"}<%
+                Cantidad: <%=RS("errores")%>,url:"mostrarReportePorclasificacion.asp?clasificacion=<%=RS("id")%>&inicial=<%=inicial%>&final=<%=final%>&flota=<%=flota%>"}<%
 				end if%>
 			<%
 			count=count+1
