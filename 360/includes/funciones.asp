@@ -1712,7 +1712,7 @@ set Conn = Server.CreateObject("ADODB.Connection")
     DSN = session("conec")
 conn.Open DSN
 Set Rsx = Server.CreateObject("ADODB.Recordset")
-Rsx.Open "SELECT * from timotor order by id",Conn, 1,3
+Rsx.Open "SELECT * from tipomotor order by id",Conn, 1,3
 varia = 1
 do while not Rsx.eof
    if varia = 1 then
@@ -1835,7 +1835,7 @@ set Conn = Server.CreateObject("ADODB.Connection")
     DSN = session("conec")
 conn.Open DSN
 Set Rsx = Server.CreateObject("ADODB.Recordset")
-Rsx.Open "SELECT Id,tipomotor from timotor",Conn, 1,3
+Rsx.Open "SELECT Id,tipomotor from tipomotor",Conn, 1,3
 do while not Rsx.eof
    if cint(varia) = Rsx("id") then
       Response.Write("<option  selected value= '" & rsx("Id") & "'>" & rsx("tipomotor") & "</option>")

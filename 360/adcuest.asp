@@ -42,7 +42,7 @@
             if letra2 = " " or letra2 = "-" or letra2 = "." or letra2 = "'" then
             else
                posiblepal = ucase(letra1) & ucase(letra2)
-               sqlbus = "select lidentificador from preguntae_360 where lidentificador = '" & posiblepal & "' and sisEstado='H'"
+               sqlbus = "select identificador from preguntae_360 where identificador = '" & posiblepal & "' and sisEstado='H'"
                RS.open sqlbus, conn,3,3
                if rs.eof then
                   i = tamapalabra
