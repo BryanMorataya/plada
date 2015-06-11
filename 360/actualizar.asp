@@ -1,15 +1,6 @@
-
-
-
 <%@LANGUAGE="VBSCRIPT" CODEPAGE="1252"%>
 <!--#include file="includes/funciones.asp"-->
-
 <%
-
-
-
-
-
 Dim Conn ' Open Database Connection
 Dim RS   ' Open Record Set
 Dim SQL  ' SQL statement  
