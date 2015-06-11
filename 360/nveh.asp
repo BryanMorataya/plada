@@ -282,7 +282,7 @@
                             </div>
                         	<div class="mws-form-cols clearfix">
                                 <div class="mws-form-col-2-8 alpha">
-                                    <label class="mws-form-label">Comisaria Propietaria</label>
+                                    <label class="mws-form-label">Departamento Asignado</label>
                                     <div class="mws-form-item clearfix">
                     					<select id="emprep" name="emprep">
                     						<%llenaFlota %>
@@ -297,7 +297,7 @@
                     				</div>
                                 </div>
                                 <div class="mws-form-col-2-8">
-                                    <label class="mws-form-label">Predio asignado</label>
+                                    <label class="mws-form-label">Parqueo Asignado</label>
                                     <div class="mws-form-item clearfix">
                     					<input id="predio" name="predio" type="text">
                                          

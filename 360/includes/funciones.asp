@@ -2625,7 +2625,7 @@ set Conn = Server.CreateObject("ADODB.Connection")
     DSN = session("conec")
 conn.Open DSN
 Set Rs = Server.CreateObject("ADODB.Recordset")
-Rs.Open "SELECT id,descripcion from departamento order by id",Conn, 1,3
+Rs.Open "SELECT id,descripcion from departamentos order by id",Conn, 1,3
 varia = 1
 do while not Rs.eof
 '   if rs("nombre") = dx2 then
@@ -2648,7 +2648,7 @@ set Conn = Server.CreateObject("ADODB.Connection")
     DSN = session("conec")
 conn.Open DSN
 Set RSx = Server.CreateObject("ADODB.Recordset")
-RSx.Open "SELECT id,descipcion from departamento order by id",Conn, 1,3
+RSx.Open "SELECT id,descipcion from departamentos order by id",Conn, 1,3
 do while not RSx.eof
    if cint(varia) = cint(RSx("id")) then
       Response.Write("<OPTION selected value= '" & RSx("id") & "'>" & RSx("descripcion") & "</OPTION>")
@@ -2666,7 +2666,7 @@ set Conn = Server.CreateObject("ADODB.Connection")
     DSN = session("conec")
 conn.Open DSN
 Set RSx = Server.CreateObject("ADODB.Recordset")
-RSx.Open "SELECT id,descripcion from departamento where id =" & varia,Conn, 1,3
+RSx.Open "SELECT id,descripcion from departamentos where id =" & varia,Conn, 1,3
 if not RSx.eof then
       Response.Write(RSx("descripcion"))
 end if
