@@ -1,6 +1,5 @@
 <%@LANGUAGE="VBSCRIPT" CODEPAGE="1252"%>
 <!--#include file="includes/funciones.asp"-->
-
 <%
 
 Dim Conn ' Open Database Connection
@@ -11,10 +10,7 @@ DSN = session("conec")
 Set RS = Server.CreateObject("ADODB.Recordset")
 Set RS1 = Server.CreateObject("ADODB.Recordset")
 Set Conn = Server.CreateObject("ADODB.Connection")
-    
-    ''cant = request.queryString("cant")
-    
-	
+    ''cant = request.queryString("cant")	
    Conn.Open DSN
    ''SQL1 = "select * from correlativo where nempresa="&session("empn")
 	''RS1.Open SQL1,Conn,3,3
