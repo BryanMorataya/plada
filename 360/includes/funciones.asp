@@ -2541,7 +2541,8 @@ Set Rsx = Server.CreateObject("ADODB.Recordset")
 if session("flotilla")=1 then
 	Rsx.Open "SELECT codigo from _vehiculos where tveh = " & nveh & " order by codigo",Conn, 1,3
 else
-	Rsx.Open "SELECT codigo from _vehiculos where tveh = " & nveh & " and empresap="&session("flotilla")&" order by codigo",Conn, 1,3
+	'Rsx.Open "SELECT codigo from _vehiculos where tveh = " & nveh & " and empresap="&session("flotilla")&" order by codigo",Conn, 1,3
+    Rsx.Open "SELECT codigo from _vehiculos where tveh = " & nveh & " order by codigo",Conn, 1,3
 end if
 do while not Rsx.eof
       Response.Write("<OPTION selected value= '" & Rsx("codigo") & "'>" & Rsx("codigo") & "</OPTION>")
