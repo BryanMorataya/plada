@@ -2625,15 +2625,15 @@ set Conn = Server.CreateObject("ADODB.Connection")
     DSN = session("conec")
 conn.Open DSN
 Set Rs = Server.CreateObject("ADODB.Recordset")
-Rs.Open "SELECT id,nombre from flotilla order by id",Conn, 1,3
+Rs.Open "SELECT id,descripcion from departamento order by id",Conn, 1,3
 varia = 1
 do while not Rs.eof
 '   if rs("nombre") = dx2 then
    if varia = 1 then
    Response.Write("<OPTION value= 0>" &"TODAS" & "</OPTION>")
-      Response.Write("<OPTION value= '" & rs("id") & "'>" & rs("nombre") & "</OPTION>")
+      Response.Write("<OPTION value= '" & rs("id") & "'>" & rs("descripcion") & "</OPTION>")
    else
-      Response.Write("<OPTION value= '" & rs("id") & "'>" & rs("nombre") & "</OPTION>")
+      Response.Write("<OPTION value= '" & rs("id") & "'>" & rs("descripcion") & "</OPTION>")
    end if
    varia = varia + 1
    rs.movenext
@@ -2648,12 +2648,12 @@ set Conn = Server.CreateObject("ADODB.Connection")
     DSN = session("conec")
 conn.Open DSN
 Set RSx = Server.CreateObject("ADODB.Recordset")
-RSx.Open "SELECT id,nombre from flotilla order by id",Conn, 1,3
+RSx.Open "SELECT id,descipcion from departamento order by id",Conn, 1,3
 do while not RSx.eof
    if cint(varia) = cint(RSx("id")) then
-      Response.Write("<OPTION selected value= '" & RSx("id") & "'>" & RSx("nombre") & "</OPTION>")
+      Response.Write("<OPTION selected value= '" & RSx("id") & "'>" & RSx("descripcion") & "</OPTION>")
    else
-      Response.Write("<OPTION value= '" & RSx("id") & "'>" & RSx("nombre") & "</OPTION>")
+      Response.Write("<OPTION value= '" & RSx("id") & "'>" & RSx("descripcion") & "</OPTION>")
    end if
    RSx.movenext
 loop
@@ -2666,9 +2666,9 @@ set Conn = Server.CreateObject("ADODB.Connection")
     DSN = session("conec")
 conn.Open DSN
 Set RSx = Server.CreateObject("ADODB.Recordset")
-RSx.Open "SELECT id,Nombre from flotilla where id =" & varia,Conn, 1,3
+RSx.Open "SELECT id,descripcion from departamento where id =" & varia,Conn, 1,3
 if not RSx.eof then
-      Response.Write(RSx("Nombre"))
+      Response.Write(RSx("descripcion"))
 end if
 set RSx = nothing
 set Conn = nothing
