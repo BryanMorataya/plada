@@ -202,7 +202,7 @@ set Conn = Server.CreateObject("ADODB.Connection")
     DSN = session("conec")
 conn.Open DSN
 Set Rs = Server.CreateObject("ADODB.Recordset")
-if session("flotilla")=1 then
+if session("flotilla")=0 then
 	Rs.Open "SELECT codigo from _vehiculos where codigo!='' order by codigo ",Conn, 1,3
 else
 	Rs.Open "SELECT codigo from _vehiculos where empresap="&session("flotilla")&" and codigo!=''order by codigo",Conn, 1,3
@@ -1434,7 +1434,7 @@ set Conn = Server.CreateObject("ADODB.Connection")
 DSN = session("conec")
 conn.Open DSN
 Set Rs = Server.CreateObject("ADODB.Recordset")
-Rs.Open "SELECT * from pilotos  order by trim(nombre);",Conn, 1,3
+Rs.Open "SELECT * from personal  order by trim(nombre);",Conn, 1,3
 varia = 1
 do while not Rs.eof
    if varia = 1 then
