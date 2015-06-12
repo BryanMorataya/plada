@@ -3,7 +3,7 @@ response.Write("<script type='text/javascript' src='js/libs/jquery-1.8.2.min.js'
 response.write ("<script type='text/javascript' src='js/funciones.js'></script>") 
 sub msidebar()
 %>
-	      <ul>
+        <ul>
                     <li ><a href="dashboard.asp"><i class="icon-home"></i> Dashboard</a></li>
                     <li><a href="#"><i class="icon-graph"></i>Vehiculos</a>
                        <ul class = "closed">
@@ -28,7 +28,7 @@ sub msidebar()
                             <li><a href="lisrutas.asp">Rutas</a></li>
                             <li><a href="lispredios.asp">Predios</a></li>-->
                             <li><a href="lisejes.asp">Ejes</a></li>
-							<li><a href="combustible.asp">TiPo De Combustible</a></li>
+              <li><a href="combustible.asp">TiPo De Combustible</a></li>
                         </ul>
                     </li>
                     <li><a href="#"><i class="icon-archive"></i>Cuestionario</a>
@@ -42,10 +42,10 @@ sub msidebar()
                             <li><a href="resumen360.asp">360 por vehiculo</a></li>
                             <!--<li><a href="resumenflotilla360.asp">360 por flotilla</a></li>-->
                             <li><a href="reportefalla.asp">Reporte por Falla</a></li>
-              							<li><a href="reportepilotos.asp">Reporte por Pilotos</a></li>
-              							<li><a href="reportefechas.asp">Reporte por Fecha</a></li>
-              							<!--<li><a href="reportecomisarias.asp">Reporte por Comisaria Vehiculos</a></li>
-              							<li><a href="reportecomisariasp.asp">Reporte por Comisaria Pilotos</a></li>-->
+                            <li><a href="reportepilotos.asp">Reporte por Pilotos</a></li>
+                            <li><a href="reportefechas.asp">Reporte por Fecha</a></li>
+                            <!--<li><a href="reportecomisarias.asp">Reporte por Comisaria Vehiculos</a></li>
+                            <li><a href="reportecomisariasp.asp">Reporte por Comisaria Pilotos</a></li>-->
                         </ul>
                     </li>
                     <!--<li><a href="#"><i class="icon-cogs"></i>Seguridad</a>
@@ -60,7 +60,7 @@ end sub
 
 sub logop()
 %>
-	<a href="dashboard.asp"><img src="images/logos/logop.png" alt="mws admin" /></a>
+  <a href="dashboard.asp"><img src="images/logos/logop.png" alt="mws admin" /></a>
 <%
 end sub
 sub tituloderecha()
@@ -125,9 +125,9 @@ set Conn = Server.CreateObject("ADODB.Connection")
 conn.Open DSN
 Set Rsx = Server.CreateObject("ADODB.Recordset")
 if session("flotilla")= 1 then
-	Rsx.Open "SELECT count(codigo) as total from _vehiculos",Conn, 1,3
+  Rsx.Open "SELECT count(codigo) as total from _vehiculos",Conn, 1,3
 else
-	Rsx.Open "SELECT count(codigo) as total from _vehiculos where empresap="&session("flotilla"),Conn, 1,3
+  Rsx.Open "SELECT count(codigo) as total from _vehiculos where empresap="&session("flotilla"),Conn, 1,3
 end if
 response.write Rsx("total") 
 set Rsx = nothing
@@ -203,9 +203,9 @@ set Conn = Server.CreateObject("ADODB.Connection")
 conn.Open DSN
 Set Rs = Server.CreateObject("ADODB.Recordset")
 if session("flotilla")=0 then
-	Rs.Open "SELECT codigo from _vehiculos where codigo!='' order by codigo ",Conn, 1,3
+  Rs.Open "SELECT codigo from _vehiculos where codigo!='' order by codigo ",Conn, 1,3
 else
-	Rs.Open "SELECT codigo from _vehiculos where empresap="&session("flotilla")&" and codigo!=''order by codigo",Conn, 1,3
+  Rs.Open "SELECT codigo from _vehiculos where empresap="&session("flotilla")&" and codigo!=''order by codigo",Conn, 1,3
 end if
 varia = 1
 do while not Rs.eof
@@ -1787,17 +1787,17 @@ End Sub
 Sub Ejesl(varia)
    if cint(varia) = 0 then
         Response.Write("<option selected value = 0>0</option>")
-		Response.Write("<option value = 1>1</option>")
+    Response.Write("<option value = 1>1</option>")
         Response.Write("<option value = 2>2</option>")
    end if
    if cint(varia) = 1 then
         Response.Write("<option value = 0>0</option>")
-		Response.Write("<option selected value = 1>1</option>")
+    Response.Write("<option selected value = 1>1</option>")
         Response.Write("<option value = 2>2</option>")
    end if
    if cint(varia) = 2 then
         Response.Write("<option value = 0>0</option>")
-		Response.Write("<option value = 1>1</option>")
+    Response.Write("<option value = 1>1</option>")
         Response.Write("<option selected value = 2>2</option>")
    end if
 End Sub
@@ -1805,17 +1805,17 @@ End Sub
 Sub Ejestl(varia)
    if cint(varia) = 0 then
         Response.Write("<option selected value = 0>0</option>")
-		Response.Write("<option value = 1>1</option>")
+    Response.Write("<option value = 1>1</option>")
         Response.Write("<option value = 2>2</option>")
    end if
    if cint(varia) = 1 then
         Response.Write("<option value = 0>0</option>")
-		Response.Write("<option selected value = 1>1</option>")
+    Response.Write("<option selected value = 1>1</option>")
         Response.Write("<option value = 2>2</option>")
    end if
    if cint(varia) = 2 then
         Response.Write("<option value = 0>0</option>")
-		Response.Write("<option value = 1>1</option>")
+    Response.Write("<option value = 1>1</option>")
         Response.Write("<option selected value = 2>2</option>")
    end if
 End Sub
@@ -2269,20 +2269,11 @@ set Conn = Server.CreateObject("ADODB.Connection")
     DSN = session("conec")
 conn.Open DSN
 Set Rsx = Server.CreateObject("ADODB.Recordset")
-nbode = session("lugar")
-nbode = 1
-if nbode = 1 then
-	if session("flotilla")=1 then
-		Rsx.Open "SELECT codigo,placa from _vehiculos order by placa",Conn, 1,3
-	else
-		Rsx.Open "SELECT codigo,placa from _vehiculos where empresap="&session("flotilla")&" order by placa",Conn, 1,3
-	end if
+
+if session("flotilla")=0 then
+  Rsx.Open "SELECT codigo,placa from _vehiculos order by placa",Conn, 1,3
 else
-	if session("flotilla")=1 then
-		Rsx.Open "SELECT codigo,placa from _vehiculos where sector = " & nbode & " order by placa",Conn, 1,3
-  	else
-		Rsx.Open "SELECT codigo,placa from _vehiculos where sector = " & nbode & " and empresap="&session("flotilla")&" order by placa",Conn, 1,3
-	end if
+  Rsx.Open "SELECT codigo,placa from _vehiculos where empresap="&session("flotilla")&" order by placa",Conn, 1,3
 end if
 varia = 1
 do while not Rsx.eof
@@ -2303,21 +2294,11 @@ set Conn = Server.CreateObject("ADODB.Connection")
     DSN = session("conec")
 conn.Open DSN
 Set Rsx = Server.CreateObject("ADODB.Recordset")
-nbode = session("lugar")
-nbode = 1
-if nbode = 1 then
-	if session("flotilla")=1 then
-		Rsx.Open "SELECT codigo from _vehiculos order by codigo",Conn, 1,3
-	else
-		Rsx.Open "SELECT codigo from _vehiculos where empresap="&session("flotilla")&" order by codigo",Conn, 1,3
-	end if
-else
-	if session("flotilla")=1 then
-		Rsx.Open "SELECT codigo from _vehiculos where sector = " & nbode & " order by codigo",Conn, 1,3
-	else
-		Rsx.Open "SELECT codigo from _vehiculos where sector = " & nbode & " and empresap="&session("flotilla")&" order by codigo",Conn, 1,3
-	end if
-end if
+  if session("flotilla")=0 then
+    Rsx.Open "SELECT codigo from _vehiculos order by codigo",Conn, 1,3
+  else
+    Rsx.Open "SELECT codigo from _vehiculos where empresap="&session("flotilla")&" order by codigo",Conn, 1,3
+  end if
 varia = 1
 do while not Rsx.eof
 '   if rs("nombre") = dx2 then
@@ -2341,9 +2322,9 @@ conn.Open DSN
 Set Rs = Server.CreateObject("ADODB.Recordset")
 nbode = session("lugar")
 if session("flotilla")=1 then
-	Rs.Open "SELECT * from _vehiculos order by codigo",Conn, 1,3
+  Rs.Open "SELECT * from _vehiculos order by codigo",Conn, 1,3
 else
-	Rs.Open "SELECT * from _vehiculos where empresap="&session("flotilla")&" order by codigo",Conn, 1,3
+  Rs.Open "SELECT * from _vehiculos where empresap="&session("flotilla")&" order by codigo",Conn, 1,3
 end if
 varia = 1
 do while not Rs.eof
@@ -2539,9 +2520,9 @@ DSN = session("conec")
 conn.Open DSN
 Set Rsx = Server.CreateObject("ADODB.Recordset")
 if session("flotilla")=0 then
-	Rsx.Open "SELECT codigo from _vehiculos where tveh = " & nveh & " order by codigo",Conn, 1,3
+  Rsx.Open "SELECT codigo from _vehiculos where tveh = " & nveh & " order by codigo",Conn, 1,3
 else
-	Rsx.Open "SELECT codigo from _vehiculos where tveh = " & nveh & " and empresap="&session("flotilla")&" order by codigo",Conn, 1,3
+  Rsx.Open "SELECT codigo from _vehiculos where tveh = " & nveh & " and empresap="&session("flotilla")&" order by codigo",Conn, 1,3
     'Rsx.Open "SELECT codigo from _vehiculos where tveh = " & nveh & " order by codigo",Conn, 1,3
 end if
 do while not Rsx.eof
