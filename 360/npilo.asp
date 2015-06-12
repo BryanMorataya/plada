@@ -169,7 +169,7 @@
                             </div>                 
                         	<div class="mws-form-cols clearfix">
                                 <div class="mws-form-col-2-8 alpha">
-                                    <label class="mws-form-label">Comisaria </label>
+                                    <label class="mws-form-label">Departamento </label>
                                     <div class="mws-form-item clearfix">
                     					<select id="emprep" name="emprep">
                     						<%llenaFlota %>

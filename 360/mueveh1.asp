@@ -253,12 +253,6 @@
                     				</div>
                                 </div>
                                 <div class="mws-form-col-2-8">
-                                    <label class="mws-form-label">Telefono Encargado</label>
-                                     <div class="mws-form-item clearfix">
-                    					<input id="patin" type="text" size="15" maxlength="50" name="patin" readonly="readonly" value = "<%=rs("telefonoe") %>"  />
-                    				</div>
-                                </div>
-                                <div class="mws-form-col-2-8">
                                     <label class="mws-form-label">Correo de notificacion</label>
                                      <div class="mws-form-item clearfix">
                     					<input id="correon" type="text" size="15" readonly="readonly" maxlength="50" name="correon" value = "<%=rs("nparte1") %>" />
@@ -267,15 +261,9 @@
                             </div> 
                         	<div class="mws-form-cols clearfix">
                                 <div class="mws-form-col-2-8 alpha">
-                                    <label class="mws-form-label">Comisaria</label>
+                                    <label class="mws-form-label">Departamento</label>
                                     <div class="mws-form-item clearfix">
                     				  <input id="emprep" type="text" size="15" readonly="readonly" maxlength="50" name="emprep" value = "<%llenaFlotad rs("empresap") %>" />
-                    				</div>
-                                </div>
-                                <div class="mws-form-col-2-8">
-                                    <label class="mws-form-label">Demarcacion</label>
-                                    <div class="mws-form-item clearfix">
-                    					 <input id="rutaa" type="text" size="15" readonly="readonly" maxlength="50" name="rutaa" value = "<%= rs("ruta") %>" />
                     				</div>
                                 </div>
                                 <div class="mws-form-col-2-8">
@@ -284,16 +272,10 @@
                     					 <input id="predioa" type="text" size="15" readonly="readonly" maxlength="50" name="predioa" value = "<%=rs("predio") %>" />
                     				</div>
                                 </div>
-                                <div class="mws-form-col-2-8">
-                                    <label class="mws-form-label">Eje o sector</label>
-                                    <div class="mws-form-item clearfix">
-                    					<input id="ejesec" type="text" size="15" readonly="readonly" maxlength="50" name="ejesec" value = "<%= rs("sector") %>" />
-                    				</div>
-                                </div>
                             </div>    
                     		<div class="mws-button-row">
                     			<input type="submit" value="Buscar otro" class="btn btn-info" />
-                                <a href="editveh.asp?vehID=<%= RS("codigo")%>" class="btn btn-danger">Editar</a>
+                                <!--<a href="editveh.asp?vehID=<%= RS("codigo")%>" class="btn btn-danger">Editar</a>-->
                     		</div>
                         </form>
                     </div>

@@ -124,7 +124,7 @@ set Conn = Server.CreateObject("ADODB.Connection")
     DSN = session("conec")
 conn.Open DSN
 Set Rsx = Server.CreateObject("ADODB.Recordset")
-if session("flotilla")= 1 then
+if session("flotilla")= 0 then
   Rsx.Open "SELECT count(codigo) as total from _vehiculos",Conn, 1,3
 else
   Rsx.Open "SELECT count(codigo) as total from _vehiculos where empresap="&session("flotilla"),Conn, 1,3
@@ -2321,7 +2321,7 @@ DSN = session("conec")
 conn.Open DSN
 Set Rs = Server.CreateObject("ADODB.Recordset")
 nbode = session("lugar")
-if session("flotilla")=1 then
+if session("flotilla")=0 then
   Rs.Open "SELECT * from _vehiculos order by codigo",Conn, 1,3
 else
   Rs.Open "SELECT * from _vehiculos where empresap="&session("flotilla")&" order by codigo",Conn, 1,3
@@ -2644,16 +2644,17 @@ set Conn = nothing
 End Sub
 
 Sub llenaFlotad(varia)
-set Conn = Server.CreateObject("ADODB.Connection")
-    DSN = session("conec")
-conn.Open DSN
-Set RSx = Server.CreateObject("ADODB.Recordset")
-RSx.Open "SELECT id,descripcion from departamentos where id =" & varia,Conn, 1,3
-if not RSx.eof then
-      Response.Write(RSx("descripcion"))
-end if
-set RSx = nothing
-set Conn = nothing
+'set Conn = Server.CreateObject("ADODB.Connection")
+'    DSN = session("conec")
+'conn.Open DSN
+'Set RSx = Server.CreateObject("ADODB.Recordset")
+'RSx.Open "SELECT id,descripcion from departamentos where id =" & varia,Conn, 1,3
+'if not RSx.eof then
+''      Response.Write(RSx("descripcion"))
+'end if
+'set RSx = nothing
+'set Conn = nothing
+Response.Write ""
 End Sub
 
 Sub agencias()
