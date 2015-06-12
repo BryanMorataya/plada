@@ -121,7 +121,7 @@
                     	<form class="mws-form" name="nveh" method="post" action="addveh.asp">
                         	<div class="mws-form-inline">
                                 <div class="mws-form-row">
-                                    <label class="mws-form-label">Numero de placa</label>
+                                    <label class="mws-form-label">Codigo de Vehiculo</label>
                                     <div class="mws-form-item large">
                                     	<div class="mws-form-cols clearfix">
                                             <div class="mws-form-col-2-8 alpha">
@@ -302,6 +302,17 @@
                     					<input id="predio" name="predio" type="text">
                                          
                     				</div>
+                                </div>
+                                 <%
+							flo="0"
+								%>
+                                <div class="mws-form-col-2-8">
+                                    <label class="mws-form-label"><span >Nombre de piloto</span></label>
+                                    <div class="mws-form-item large">
+                                      <select id="piloto1" name="piloto1">
+                                       <% bpilotos flo%>
+                                      </select>
+                                    </div>
                                 </div>
                             </div>    
                     		<div class="mws-button-row">

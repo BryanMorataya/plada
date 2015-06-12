@@ -20,7 +20,8 @@
 	Set RS = Server.CreateObject("ADODB.Recordset")
 	Set Conn = Server.CreateObject("ADODB.Connection")
 	Conn.Open DSN
-	SQL = "SELECT * FROM _vehiculos where codigo= '" & vcodigo & "' and empresap='"&session("flota")&"'"
+	'SQL = "SELECT * FROM _vehiculos where codigo= '" & vcodigo & "' and empresap='"&session("flota")&"'"
+        SQL = "SELECT * FROM _vehiculos where codigo= '" & vcodigo & "'"
 	RS.open SQL, conn,3,3
 	if RS.EOF Then
 		vcodigo =  Request.Form("codigo")
@@ -64,13 +65,18 @@
         vsect = request.form("sect")
         vruta = request.form("ruta")
         vpred = request.form("predio")
+        npiloto = request.form("piloto1")
         vfimpo2 = year(vfimpo)&"-"&day(vfimpo)&"-"&month(vfimpo)
         vfpoliza2 = year(vfpoliza)&"-"&day(vfpoliza)&"-"&month(vfpoliza)
         vfimpo2 = year(vfimpo)&"-"&month(vfimpo)&"-"&day(vfimpo)
         vfpoliza2 = year(vfpoliza)&"-"&month(vfpoliza)&"-"&day(vfpoliza)
-		SQLAdd = "INSERT INTO _vehiculos(codigo,descripcion,motor,cha,tmotor,tcaj,tdiferen,placa,kma,marca,modelo,ccontable,fpoliza,tveh,uservicio,xservicio,nempresa,cejed,cejet,telefonoe,empresap,empresas,sector,ruta,predio,nparte1)Values('"
-		SQLAdd = SQLAdd &vcodigo&"','"&vdescrip&"','"&vmotor&"','"&vcha&"','"&vtmotor&"','"&vcaj&"','"&vtdiferen&"','"&vplaca&"',"&vkmi&",'"&vmarca&"','"&vmodelo&"','"&vccontable&"','"&vfpoliza2&"',"&vtveh&""
-        SQLAdd = SQLAdd & ","&vuserv&","&vdserv&",23,"&vejed&","&vejet&",'"&vpatin&"','"&vemprep&"','"&vempres&"',"&vsect&",'"&vruta&"','"&vpred&"','"&vcorreo&"')"
+
+		'SQLAdd = "INSERT INTO _vehiculos(codigo,descripcion,motor,cha,tmotor,tcaj,tdiferen,placa,kma,marca,modelo,ccontable,fpoliza,tveh,uservicio,xservicio,nempresa,cejed,cejet,telefonoe,empresap,empresas,sector,ruta,predio,nparte1)Values('"
+		'SQLAdd = SQLAdd &vcodigo&"','"&vdescrip&"','"&vmotor&"','"&vcha&"','"&vtmotor&"','"&vcaj&"','"&vtdiferen&"','"&vplaca&"',"&vkmi&",'"&vmarca&"','"&vmodelo&"','"&vccontable&"','"&vfpoliza2&"',"&vtveh&""
+        'SQLAdd = SQLAdd & ","&vuserv&","&vdserv&",23,"&vejed&","&vejet&",'"&vpatin&"','"&vemprep&"','"&vempres&"',"&vsect&",'"&vruta&"','"&vpred&"','"&vcorreo&"')"
+        SQLAdd = "INSERT INTO _vehiculos(codigoa,codigo,descripcion,motor,cha,tmotor,tcaj,tdiferen,placa,kma,marca,modelo,ccontable,fpoliza,tveh,uservicio,xservicio,nempresa,cejed,cejet,empresap,empresas,sector,ruta,predio,nparte1,npiloto)Values('"
+		SQLAdd = SQLAdd &vcodigo&"','"&vplaca&"','"&vdescrip&"','"&vmotor&"','"&vcha&"','"&vtmotor&"','"&vcaj&"','"&vtdiferen&"','"&vplaca&"',"&vkmi&",'"&vmarca&"','"&vmodelo&"','"&vccontable&"','"&vfpoliza2&"',"&vtveh&""
+        SQLAdd = SQLAdd & ","&vuserv&","&vdserv&",23,"&vejed&","&vejet&",'"&vemprep&"','"&vempres&"',"&vsect&",'"&vruta&"','"&vpred&"','"&vcorreo&"',"&npiloto&")"
       response.write sqladd
 		Conn.Execute SQLAdd
 		Conn.Close
