@@ -130,9 +130,9 @@
 							Set Conn = Server.CreateObject("ADODB.Connection")
 							Conn.Open DSN
 							If Session("flota")<>0 Then
-							SqlQuery="select tipo.id_tipo_vehiculo, tipo.tipo_vehiculo from tipo_vehiculo tipo inner join _vehiculos veh where veh.empresap="&Session("flota")&" and tipo.id_tipo_vehiculo=veh.tveh and id_tipo_vehiculo > 1 group by id_tipo_vehiculo order by id_tipo_vehiculo"
+							SqlQuery="select tipo.id_tipo_vehiculo, tipo.tipo_vehiculo from tipo_vehiculo tipo inner join _vehiculos veh where veh.empresap="&Session("flota")&" and tipo.id_tipo_vehiculo=veh.tveh and id_tipo_vehiculo >0 group by id_tipo_vehiculo order by id_tipo_vehiculo"
 							Else
-							SqlQuery="select id_tipo_vehiculo, tipo_vehiculo from tipo_vehiculo where id_tipo_vehiculo > 1;"
+							SqlQuery="select id_tipo_vehiculo, tipo_vehiculo from tipo_vehiculo where id_tipo_vehiculo > 0;"
 							End If
 							'response.write(SqlQuery)
 							RS.open SqlQuery, conn,3,3
@@ -140,7 +140,7 @@
 								%>
 									<div class="mws-form-col-1-8 alpha">
                                         <a href ="detkmit.asp?tipv=<%=Rs("id_tipo_vehiculo")%>">
-                                            <img alt="<%=Rs("tipo_vehiculo")%>" src="images/tipoVehiculo/<%=Rs("id_tipo_vehiculo")%>.gif" border="0" height="53" width="101" />
+                                            <img alt="<%=Rs("tipo_vehiculo")%>" src="images/tipoVehiculo/<%=Rs("id_tipo_vehiculo")%>.png" border="0" height="53" width="101" />
                                         </a>
                                     </div>
 								<%
