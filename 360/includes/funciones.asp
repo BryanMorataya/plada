@@ -24,9 +24,9 @@ sub msidebar()
                             <li><a href="tipocaja.asp">Tipo de Caja</a></li>
                             <li><a href="tipodife.asp">Tipo de Diferencial</a></li>
                             <li><a href="marcaveh.asp">Marcas de vehiculo</a></li>
-                            <!--<li><a href="lisempre.asp">Empresas</a></li>-->
+                            <!--<li><a href="lisempre.asp">Empresas</a></li>
                             <li><a href="lisrutas.asp">Rutas</a></li>
-                            <li><a href="lispredios.asp">Predios</a></li>
+                            <li><a href="lispredios.asp">Predios</a></li>-->
                             <li><a href="lisejes.asp">Ejes</a></li>
 							<li><a href="combustible.asp">TiPo De Combustible</a></li>
                         </ul>
@@ -42,10 +42,10 @@ sub msidebar()
                             <li><a href="resumen360.asp">360 por vehiculo</a></li>
                             <!--<li><a href="resumenflotilla360.asp">360 por flotilla</a></li>-->
                             <li><a href="reportefalla.asp">Reporte por Falla</a></li>
-							 <li><a href="reportepilotos.asp">Reporte por Pilotos</a></li>
-							  <li><a href="reportefechas.asp">Reporte por Fecha</a></li>
-							  <li><a href="reportecomisarias.asp">Reporte por Comisaria Vehiculos</a></li>
-							   <li><a href="reportecomisariasp.asp">Reporte por Comisaria Pilotos</a></li>
+              							<li><a href="reportepilotos.asp">Reporte por Pilotos</a></li>
+              							<li><a href="reportefechas.asp">Reporte por Fecha</a></li>
+              							<!--<li><a href="reportecomisarias.asp">Reporte por Comisaria Vehiculos</a></li>
+              							<li><a href="reportecomisariasp.asp">Reporte por Comisaria Pilotos</a></li>-->
                         </ul>
                     </li>
                     <!--<li><a href="#"><i class="icon-cogs"></i>Seguridad</a>
